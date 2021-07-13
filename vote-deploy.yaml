@@ -1,6 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment 
+kind: Deployment
 metadata:
+  namespace: instavote
   name: vote
 spec:
   strategy:
@@ -16,21 +17,27 @@ spec:
       role: vote
     matchExpressions:
       - {key: version, operator: In, values: [v1, v2, v3, v4, v5]}
-  template: 
+  template:
     metadata:
-      name: vote 
-      labels: 
-        app: python 
-        role: vote 
-        version: v1 
+      name: vote
+      labels:
+        app: python
+        role: vote
+        version: v1
     spec:
-      containers: 
-        - name: app 
-          image: h0tbird/voting-app 
+      containers:
+        - name: app
+          image: h0tbird/voting-app
+          ports:
+           - containerPort: 80
+             protocol: TCP
+          envFrom:
+           - configMapRef:
+                 name: vote
           resources:
             requests:
               memory: "64Mi"
               cpu: "50m"
-            limits: 
+            limits:
               memory: "128Mi"
               cpu: "250m"
