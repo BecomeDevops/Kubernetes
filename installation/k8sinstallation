@@ -39,9 +39,12 @@ eksctl create cluster --name cluster-name  \
 --zones <AZ-1>,<AZ-2>
 
 example:
-eksctl create cluster --name ondemans-cluster \
+eksctl create cluster --name ondemandlabs \
    --region ap-south-1 \
 --node-type t2.small \
+--nodes-min 2 \
+--nodes-max 2 \ 
+--zones <AZ-1>,<AZ-2>
 To delete the EKS clsuter
 
 eksctl delete cluster ondemandlabs --region ap-south-1
