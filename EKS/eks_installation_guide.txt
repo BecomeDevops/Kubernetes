@@ -1,0 +1,59 @@
+
+
+
+ec2, s3, rds
+*** Role access should be given to ec2 instance ( admin access)
+
+Iam - permissions
+
+Role - created-----------------entire access ( admin acccess)
+
+
+ec2-----attach role to ec2--------------------------- eks cluster
+
+
+
+
+kubectl is a command line tool used to interact with k8s cluster
+
+
+kubectl installation
+======================
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin 
+kubectl version --short --client
+
+
+
+eksctl - eksctl is a command line tool which is used to create eks cluster 
+
+
+eksctl installation
+=======================
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+
+
+eksctl create cluster --name myekscluster --region ap-south-1 --without-nodegroup
+
+
+
+https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html - link for iam
+
+
+eksctl create nodegroup \
+  --cluster myekscluster \
+  --region ap-south-1 \
+  --name mynodes \
+  --node-type t2.micro \
+  --nodes 2 \
+  --nodes-min 2 \
+  --nodes-max 4 \
+  --ssh-access \
+  --ssh-public-key eks
+
+
+
