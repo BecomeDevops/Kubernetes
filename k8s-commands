@@ -1,0 +1,36 @@
+  kubectl get pods
+   83  kubectl get ns
+   84  kubectl create namespace courses
+   85  kubectl get namespces
+   86  kubectl get namespaces
+   87  kubectl get pods -n kube-system
+   88  kubectl get pods
+   89  vi pod.yaml
+   90  ls
+   91  kubectl apply -f pod.yaml 
+   92  kubectl get pods
+   93  kubectl get pods -n courses
+   94  clear
+   95  kubectl get pods
+   96  kubectl describe pod nginx
+   97  clear
+   98  kubectl get pods
+   99  kubectl delete pod nginx
+  100  kubectl get pods
+  101  ls
+  102  kubectl apply -f pod.yaml -n courses
+  103  kubectl get pods
+  104  clear
+  105  kubectl get pods -n courses
+  106  kubectl get namespaces
+  107  kubectl create namespace dev
+  108  kubectl get namespaces
+  109  kubectl get pod -n dev
+  110  kubectl get pods -n courses
+  111  kubectl logs nginx
+  112  kubectl logs nginx -n courses
+  113  kubectl get node
+  114  kubectl get pods -o wide
+  115  kubectl get pods -o wide -n cources
+  116  kubectl get pods -o wide -n courses
+  117  history
